@@ -13,13 +13,13 @@
       {
         "type": "button",
         "data": {
-          "text": "ToyGun (64)",
+          "text": "Toy Gun (64)",
           "onClick": {
             "name": "ToyGun"
           },
           "width": 55,
           "height": 20,
-          "name": "ToyGun (64)",
+          "name": "Toy Gun (64)",
           "x": 135,
           "y": 49
         }
@@ -36,6 +36,48 @@
           "name": "Toy Lasersaber (40)",
           "x": 199,
           "y": 49
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Toy Taser (40)",
+          "onClick": {
+            "name": "Toytaserclick"
+          },
+          "width": 95,
+          "height": 20,
+          "name": "Toy Taser (40)",
+          "x": 127,
+          "y": 77
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Lego (20)",
+          "onClick": {
+            "name": "Legoclick"
+          },
+          "width": 70,
+          "height": 20,
+          "name": "Lego (20)",
+          "x": 225,
+          "y": 77
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Toy Car (64)",
+          "onClick": {
+            "name": "Toycarclick"
+          },
+          "width": 85,
+          "height": 20,
+          "name": "Toy Car (64)",
+          "x": 131,
+          "y": 105
         }
       }
     ]

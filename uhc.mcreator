@@ -204,18 +204,86 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "taser_bolt_not_ammo"
+    },
+    {
+      "name": "Toytaserclick",
+      "type": "procedure",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "toytaserclick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Legoclick",
+      "type": "procedure",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "legoclick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Toycarclick",
+      "type": "procedure",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "toycarclick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
+      "block.uhc.lego": "Lego",
       "itemGroup.tabtoys": "Toys",
       "item.uhc.toy_laser_saber": "Toy Laser Saber",
+      "item.uhc.taser_bolt_not_ammo": "Taser Bolt Not Ammo",
       "block.uhc.coins": "Coins",
       "item.uhc.dart": "Dart",
       "item.uhc.coin": "Coin",
-      "item.uhc.toy_gun_item": "Toy Gun"
+      "item.uhc.toy_taser": "Toy Taser",
+      "entity.uhc.toy_car": "Toy Car",
+      "item.uhc.toy_gun_item": "Toy Gun",
+      "item.uhc.toy_car_spawn_egg": "Toy Car Spawn Egg"
     }
   },
   "foldersRoot": {

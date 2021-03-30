@@ -1,18 +1,58 @@
 
 package net.mcreator.uhc.entity;
 
-import net.minecraft.block.material.Material;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraftforge.fml.network.FMLPlayMessages;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fml.DeferredWorkQueue;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
+
+import net.minecraft.world.World;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Hand;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.network.IPacket;
+import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
+import net.minecraft.entity.projectile.PotionEntity;
+import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
+import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.CreatureEntity;
+import net.minecraft.entity.CreatureAttribute;
+import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.MobRenderer;
+
+import net.mcreator.uhc.itemgroup.ToysItemGroup;
+import net.mcreator.uhc.UhcModElements;
+
+import com.mojang.blaze3d.vertex.IVertexBuilder;
+import com.mojang.blaze3d.matrix.MatrixStack;
 
 @UhcModElements.ModElement.Tag
 public class ToyCarEntity extends UhcModElements.ModElement {
-
 	public static EntityType entity = null;
-
 	public ToyCarEntity(UhcModElements instance) {
 		super(instance, 10);
-
 		FMLJavaModLoadingContext.get().getModEventBus().register(new ModelRegisterHandler());
-
 	}
 
 	@Override
@@ -20,50 +60,38 @@ public class ToyCarEntity extends UhcModElements.ModElement {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER).setShouldReceiveVelocityUpdates(true)
 				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).immuneToFire().size(0.5f, 0.25f))
 						.build("toy_car").setRegistryName("toy_car");
-
 		elements.entities.add(() -> entity);
-
 		elements.items.add(() -> new SpawnEggItem(entity, -16764007, -6710887, new Item.Properties().group(ToysItemGroup.tab))
 				.setRegistryName("toy_car_spawn_egg"));
-
 	}
 
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 		DeferredWorkQueue.runLater(this::setupAttributes);
-
 	}
-
 	private static class ModelRegisterHandler {
-
 		@SubscribeEvent
 		@OnlyIn(Dist.CLIENT)
 		public void registerModels(ModelRegistryEvent event) {
 			RenderingRegistry.registerEntityRenderingHandler(entity, renderManager -> {
 				return new MobRenderer(renderManager, new Modelcustom_model(), 0.5f) {
-
 					@Override
 					public ResourceLocation getEntityTexture(Entity entity) {
 						return new ResourceLocation("uhc:textures/car2.png");
 					}
 				};
 			});
-
 		}
 	}
-
 	private void setupAttributes() {
 		AttributeModifierMap.MutableAttribute ammma = MobEntity.func_233666_p_();
 		ammma = ammma.createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.2);
 		ammma = ammma.createMutableAttribute(Attributes.MAX_HEALTH, 20);
 		ammma = ammma.createMutableAttribute(Attributes.ARMOR, 0);
 		ammma = ammma.createMutableAttribute(Attributes.ATTACK_DAMAGE, 0);
-
 		GlobalEntityTypeAttributes.put(entity, ammma.create());
 	}
-
 	public static class CustomEntity extends CreatureEntity {
-
 		public CustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			this(entity, world);
 		}
@@ -72,9 +100,7 @@ public class ToyCarEntity extends UhcModElements.ModElement {
 			super(type, world);
 			experienceValue = 0;
 			setNoAI(false);
-
 			enablePersistence();
-
 		}
 
 		@Override
@@ -85,7 +111,6 @@ public class ToyCarEntity extends UhcModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
-
 		}
 
 		@Override
@@ -141,11 +166,8 @@ public class ToyCarEntity extends UhcModElements.ModElement {
 		public ActionResultType func_230254_b_(PlayerEntity sourceentity, Hand hand) {
 			ItemStack itemstack = sourceentity.getHeldItem(hand);
 			ActionResultType retval = ActionResultType.func_233537_a_(this.world.isRemote());
-
 			super.func_230254_b_(sourceentity, hand);
-
 			sourceentity.startRiding(this);
-
 			double x = this.getPosX();
 			double y = this.getPosY();
 			double z = this.getPosZ();
@@ -165,17 +187,12 @@ public class ToyCarEntity extends UhcModElements.ModElement {
 				this.renderYawOffset = entity.rotationYaw;
 				this.rotationYawHead = entity.rotationYaw;
 				this.stepHeight = 1.0F;
-
 				if (entity instanceof LivingEntity) {
 					this.setAIMoveSpeed((float) this.getAttributeValue(Attributes.MOVEMENT_SPEED));
-
 					float forward = ((LivingEntity) entity).moveForward;
-
 					float strafe = 0;
-
 					super.travel(new Vector3d(strafe, 0, forward));
 				}
-
 				this.prevLimbSwingAmount = this.limbSwingAmount;
 				double d1 = this.getPosX() - this.prevPosX;
 				double d0 = this.getPosZ() - this.prevPosZ;
@@ -188,23 +205,18 @@ public class ToyCarEntity extends UhcModElements.ModElement {
 			}
 			this.stepHeight = 0.5F;
 			this.jumpMovementFactor = 0.02F;
-
 			super.travel(dir);
 		}
-
 	}
 
 	// Made with Blockbench 3.8.3
 	// Exported for Minecraft version 1.15 - 1.16
 	// Paste this class into your mod and generate all required imports
-
 	public static class Modelcustom_model extends EntityModel<Entity> {
 		private final ModelRenderer bb_main;
-
 		public Modelcustom_model() {
 			textureWidth = 128;
 			textureHeight = 128;
-
 			bb_main = new ModelRenderer(this);
 			bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
 			bb_main.setTextureOffset(0, 0).addBox(15.0F, -15.0F, -24.0F, 1.0F, 10.0F, 48.0F, 0.0F, false);
@@ -253,5 +265,4 @@ public class ToyCarEntity extends UhcModElements.ModElement {
 			modelRenderer.rotateAngleZ = z;
 		}
 	}
-
 }

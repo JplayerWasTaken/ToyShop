@@ -22,8 +22,11 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.gui.ScreenManager;
 
+import net.mcreator.uhc.procedures.ToytaserclickProcedure;
+import net.mcreator.uhc.procedures.ToycarclickProcedure;
 import net.mcreator.uhc.procedures.ToyLasersaberclickProcedure;
 import net.mcreator.uhc.procedures.ToyGunProcedure;
+import net.mcreator.uhc.procedures.LegoclickProcedure;
 import net.mcreator.uhc.UhcModElements;
 
 import java.util.function.Supplier;
@@ -190,6 +193,30 @@ public class ToyShopGui extends UhcModElements.ModElement {
 				$_dependencies.put("entity", entity);
 				$_dependencies.put("world", world);
 				ToyLasersaberclickProcedure.executeProcedure($_dependencies);
+			}
+		}
+		if (buttonID == 2) {
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("world", world);
+				ToytaserclickProcedure.executeProcedure($_dependencies);
+			}
+		}
+		if (buttonID == 3) {
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("world", world);
+				LegoclickProcedure.executeProcedure($_dependencies);
+			}
+		}
+		if (buttonID == 4) {
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("world", world);
+				ToycarclickProcedure.executeProcedure($_dependencies);
 			}
 		}
 	}
