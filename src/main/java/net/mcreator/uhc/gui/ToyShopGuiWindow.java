@@ -68,6 +68,8 @@ public class ToyShopGuiWindow extends ContainerScreen<ToyShopGui.GuiContainerMod
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
+		this.font.drawString(ms, "Toy Shop!", 62, 48, -13421569);
+		this.font.drawString(ms, "0% Off!", 69, 106, -16724737);
 	}
 
 	@Override
@@ -80,23 +82,23 @@ public class ToyShopGuiWindow extends ContainerScreen<ToyShopGui.GuiContainerMod
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
-		this.addButton(new Button(this.guiLeft + 9, this.guiTop + 12, 55, 20, new StringTextComponent("Toy Gun (64)"), e -> {
+		this.addButton(new Button(this.guiLeft + 6, this.guiTop + 17, 55, 20, new StringTextComponent("Toy Gun (64)"), e -> {
 			UhcMod.PACKET_HANDLER.sendToServer(new ToyShopGui.ButtonPressedMessage(0, x, y, z));
 			ToyShopGui.handleButtonAction(entity, 0, x, y, z);
 		}));
-		this.addButton(new Button(this.guiLeft + 73, this.guiTop + 12, 95, 20, new StringTextComponent("Toy Lasersaber (40)"), e -> {
+		this.addButton(new Button(this.guiLeft + 72, this.guiTop + 16, 95, 20, new StringTextComponent("Toy Lasersaber (40)"), e -> {
 			UhcMod.PACKET_HANDLER.sendToServer(new ToyShopGui.ButtonPressedMessage(1, x, y, z));
 			ToyShopGui.handleButtonAction(entity, 1, x, y, z);
 		}));
-		this.addButton(new Button(this.guiLeft + 1, this.guiTop + 40, 95, 20, new StringTextComponent("Toy Taser (40)"), e -> {
+		this.addButton(new Button(this.guiLeft + 42, this.guiTop + 71, 95, 20, new StringTextComponent("Toy Taser (40)"), e -> {
 			UhcMod.PACKET_HANDLER.sendToServer(new ToyShopGui.ButtonPressedMessage(2, x, y, z));
 			ToyShopGui.handleButtonAction(entity, 2, x, y, z);
 		}));
-		this.addButton(new Button(this.guiLeft + 99, this.guiTop + 40, 70, 20, new StringTextComponent("Lego (20)"), e -> {
+		this.addButton(new Button(this.guiLeft + 98, this.guiTop + 134, 70, 20, new StringTextComponent("Lego (20)"), e -> {
 			UhcMod.PACKET_HANDLER.sendToServer(new ToyShopGui.ButtonPressedMessage(3, x, y, z));
 			ToyShopGui.handleButtonAction(entity, 3, x, y, z);
 		}));
-		this.addButton(new Button(this.guiLeft + 5, this.guiTop + 68, 85, 20, new StringTextComponent("Toy Car (64)"), e -> {
+		this.addButton(new Button(this.guiLeft + 9, this.guiTop + 133, 85, 20, new StringTextComponent("Toy Car (64)"), e -> {
 			UhcMod.PACKET_HANDLER.sendToServer(new ToyShopGui.ButtonPressedMessage(4, x, y, z));
 			ToyShopGui.handleButtonAction(entity, 4, x, y, z);
 		}));
