@@ -147,6 +147,24 @@
           }
         ]
       }
+    },
+    {
+      "name": "TaserBoltNotAmmo",
+      "type": "item",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "taser_bolt_not_ammo"
+    },
+    {
+      "name": "ToyTaser",
+      "type": "gun",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "toy_taser"
     }
   ],
   "variable_elements": [],
@@ -155,9 +173,11 @@
     "en_us": {
       "itemGroup.tabtoys": "Toys",
       "item.uhc.toy_laser_saber": "Toy Laser Saber",
+      "item.uhc.taser_bolt_not_ammo": "Taser Bolt Not Ammo",
       "block.uhc.coins": "Coins",
       "item.uhc.dart": "Dart",
       "item.uhc.coin": "Coin",
+      "item.uhc.toy_taser": "Toy Taser",
       "item.uhc.toy_gun_item": "Toy Gun"
     }
   },
