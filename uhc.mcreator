@@ -206,6 +206,27 @@
       "registry_name": "taser_bolt_not_ammo"
     },
     {
+      "name": "Toycarclick",
+      "type": "procedure",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "toycarclick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
       "name": "Toytaserclick",
       "type": "procedure",
       "sortid": 12,
@@ -234,27 +255,6 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "legoclick",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "Toycarclick",
-      "type": "procedure",
-      "sortid": 14,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "toycarclick",
       "metadata": {
         "dependencies": [
           {

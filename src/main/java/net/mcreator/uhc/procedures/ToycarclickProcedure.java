@@ -1,24 +1,11 @@
 package net.mcreator.uhc.procedures;
 
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
-
-import net.minecraft.world.IWorld;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
-
-import net.mcreator.uhc.item.CoinItem;
-import net.mcreator.uhc.UhcModElements;
-import net.mcreator.uhc.UhcMod;
-
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.Map;
-
 @UhcModElements.ModElement.Tag
 public class ToycarclickProcedure extends UhcModElements.ModElement {
+
 	public ToycarclickProcedure(UhcModElements instance) {
 		super(instance, 14);
+
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -32,8 +19,10 @@ public class ToycarclickProcedure extends UhcModElements.ModElement {
 				UhcMod.LOGGER.warn("Failed to load dependency world for procedure Toycarclick!");
 			return;
 		}
+
 		Entity entity = (Entity) dependencies.get("entity");
 		IWorld world = (IWorld) dependencies.get("world");
+
 		double Amount_Of_Item_Needed = 0;
 		boolean ItemBought = false;
 		if (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(CoinItem.block, (int) (1))) : false)) {
@@ -67,5 +56,7 @@ public class ToycarclickProcedure extends UhcModElements.ModElement {
 				}
 			}
 		}
+
 	}
+
 }
