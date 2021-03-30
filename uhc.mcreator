@@ -117,6 +117,36 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "toys"
+    },
+    {
+      "name": "ToyLaserSaber",
+      "type": "tool",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "toy_laser_saber"
+    },
+    {
+      "name": "ToyLasersaberclick",
+      "type": "procedure",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "toy_lasersaberclick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [],
@@ -124,6 +154,7 @@
   "language_map": {
     "en_us": {
       "itemGroup.tabtoys": "Toys",
+      "item.uhc.toy_laser_saber": "Toy Laser Saber",
       "block.uhc.coins": "Coins",
       "item.uhc.dart": "Dart",
       "item.uhc.coin": "Coin",
