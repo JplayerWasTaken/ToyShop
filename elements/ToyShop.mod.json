@@ -20,8 +20,8 @@
           "width": 55,
           "height": 20,
           "name": "Toy Gun (64)",
-          "x": 135,
-          "y": 49
+          "x": 132,
+          "y": 54
         }
       },
       {
@@ -34,8 +34,8 @@
           "width": 95,
           "height": 20,
           "name": "Toy Lasersaber (40)",
-          "x": 199,
-          "y": 49
+          "x": 198,
+          "y": 53
         }
       },
       {
@@ -48,8 +48,8 @@
           "width": 95,
           "height": 20,
           "name": "Toy Taser (40)",
-          "x": 127,
-          "y": 77
+          "x": 168,
+          "y": 108
         }
       },
       {
@@ -62,8 +62,8 @@
           "width": 70,
           "height": 20,
           "name": "Lego (20)",
-          "x": 225,
-          "y": 77
+          "x": 224,
+          "y": 171
         }
       },
       {
@@ -76,8 +76,34 @@
           "width": 85,
           "height": 20,
           "name": "Toy Car (64)",
-          "x": 131,
-          "y": 105
+          "x": 135,
+          "y": 170
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Toy Shop!",
+          "color": {
+            "value": -13421569,
+            "falpha": 0.0
+          },
+          "name": "Toy Shop!",
+          "x": 188,
+          "y": 85
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "0% Off!",
+          "color": {
+            "value": -16724737,
+            "falpha": 0.0
+          },
+          "name": "0% Off!",
+          "x": 195,
+          "y": 143
         }
       }
     ]
