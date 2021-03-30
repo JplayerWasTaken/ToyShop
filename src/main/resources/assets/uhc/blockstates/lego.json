@@ -1,13 +1,7 @@
 {
   "variants": {
-    "type=bottom": {
+    "": {
       "model": "uhc:block/lego"
-    },
-    "type=top": {
-      "model": "uhc:block/lego_top"
-    },
-    "type=double": {
-      "model": "uhc:block/lego_full"
     }
   }
 }
