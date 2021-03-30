@@ -80,11 +80,11 @@ public class ToyShopGuiWindow extends ContainerScreen<ToyShopGui.GuiContainerMod
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
-		this.addButton(new Button(this.guiLeft + 9, this.guiTop + 12, 55, 20, new StringTextComponent("ToyGun"), e -> {
+		this.addButton(new Button(this.guiLeft + 9, this.guiTop + 12, 55, 20, new StringTextComponent("ToyGun (64)"), e -> {
 			UhcMod.PACKET_HANDLER.sendToServer(new ToyShopGui.ButtonPressedMessage(0, x, y, z));
 			ToyShopGui.handleButtonAction(entity, 0, x, y, z);
 		}));
-		this.addButton(new Button(this.guiLeft + 73, this.guiTop + 12, 95, 20, new StringTextComponent("Toy Lasersaber"), e -> {
+		this.addButton(new Button(this.guiLeft + 73, this.guiTop + 12, 95, 20, new StringTextComponent("Toy Lasersaber (40)"), e -> {
 			UhcMod.PACKET_HANDLER.sendToServer(new ToyShopGui.ButtonPressedMessage(1, x, y, z));
 			ToyShopGui.handleButtonAction(entity, 1, x, y, z);
 		}));

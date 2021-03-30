@@ -22,6 +22,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.gui.ScreenManager;
 
+import net.mcreator.uhc.procedures.ToyLasersaberclickProcedure;
 import net.mcreator.uhc.procedures.ToyGunProcedure;
 import net.mcreator.uhc.UhcModElements;
 
@@ -181,6 +182,14 @@ public class ToyShopGui extends UhcModElements.ModElement {
 				$_dependencies.put("entity", entity);
 				$_dependencies.put("world", world);
 				ToyGunProcedure.executeProcedure($_dependencies);
+			}
+		}
+		if (buttonID == 1) {
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("world", world);
+				ToyLasersaberclickProcedure.executeProcedure($_dependencies);
 			}
 		}
 	}

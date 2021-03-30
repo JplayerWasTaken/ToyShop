@@ -13,13 +13,13 @@
       {
         "type": "button",
         "data": {
-          "text": "ToyGun",
+          "text": "ToyGun (64)",
           "onClick": {
             "name": "ToyGun"
           },
           "width": 55,
           "height": 20,
-          "name": "ToyGun",
+          "name": "ToyGun (64)",
           "x": 135,
           "y": 49
         }
@@ -27,10 +27,13 @@
       {
         "type": "button",
         "data": {
-          "text": "Toy Lasersaber",
+          "text": "Toy Lasersaber (40)",
+          "onClick": {
+            "name": "ToyLasersaberclick"
+          },
           "width": 95,
           "height": 20,
-          "name": "Toy Lasersaber",
+          "name": "Toy Lasersaber (40)",
           "x": 199,
           "y": 49
         }

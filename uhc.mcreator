@@ -149,13 +149,43 @@
       }
     },
     {
-      "name": "TaserBoltNotAmmo",
-      "type": "item",
+      "name": "LegoEntityWalksOnTheBlock",
+      "type": "procedure",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "lego_entity_walks_on_the_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Lego",
+      "type": "block",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "lego"
+    },
+    {
+      "name": "ToyCar",
+      "type": "mob",
       "sortid": 10,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "taser_bolt_not_ammo"
+      "registry_name": "toy_car"
     },
     {
       "name": "ToyTaser",
@@ -165,6 +195,15 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "toy_taser"
+    },
+    {
+      "name": "TaserBoltNotAmmo",
+      "type": "item",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "taser_bolt_not_ammo"
     }
   ],
   "variable_elements": [],
@@ -173,11 +212,9 @@
     "en_us": {
       "itemGroup.tabtoys": "Toys",
       "item.uhc.toy_laser_saber": "Toy Laser Saber",
-      "item.uhc.taser_bolt_not_ammo": "Taser Bolt Not Ammo",
       "block.uhc.coins": "Coins",
       "item.uhc.dart": "Dart",
       "item.uhc.coin": "Coin",
-      "item.uhc.toy_taser": "Toy Taser",
       "item.uhc.toy_gun_item": "Toy Gun"
     }
   },
