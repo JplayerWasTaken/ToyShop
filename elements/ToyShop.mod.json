@@ -1,0 +1,29 @@
+{
+  "_fv": 17,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "text": "ToyGun",
+          "onClick": {
+            "name": "ToyGun"
+          },
+          "width": 55,
+          "height": 20,
+          "name": "ToyGun",
+          "x": 140,
+          "y": 78
+        }
+      }
+    ]
+  }
+}

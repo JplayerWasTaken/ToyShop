@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "uhc:blocks/coin",
+    "particle": "uhc:blocks/coin"
+  }
+}

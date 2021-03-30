@@ -1,0 +1,37 @@
+{
+  "_fv": 17,
+  "_type": "gun",
+  "definition": {
+    "renderType": 0,
+    "texture": "nerftgun",
+    "customModelName": "Normal",
+    "name": "Toy Gun",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:Toys"
+    },
+    "stackSize": 1,
+    "ammoItem": {
+      "value": ""
+    },
+    "shootConstantly": false,
+    "usageCount": 100,
+    "actionSound": {
+      "value": "entity.arrow.shoot"
+    },
+    "hasGlow": false,
+    "animation": "bow",
+    "enableMeleeDamage": false,
+    "damageVsEntity": 0.0,
+    "bulletPower": 3.0,
+    "bulletDamage": 0.1,
+    "bulletKnockback": 1,
+    "bulletParticles": false,
+    "bulletIgnitesFire": false,
+    "bulletItemTexture": {
+      "value": "CUSTOM:Dart"
+    },
+    "bulletModel": "Default",
+    "customBulletModelTexture": ""
+  }
+}
