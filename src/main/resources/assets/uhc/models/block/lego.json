@@ -1,0 +1,10 @@
+{
+  "parent": "block/grass_block",
+  "textures": {
+    "bottom": "uhc:blocks/legotop",
+    "top": "uhc:blocks/legotop",
+    "side": "uhc:blocks/legoside",
+    "overlay": "uhc:blocks/legoside",
+    "particle": "uhc:blocks/legotop"
+  }
+}
