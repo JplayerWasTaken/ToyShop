@@ -1,11 +1,8 @@
 {
-  "block.uhc.lego": "Lego",
   "itemGroup.tabtoys": "Toys",
   "item.uhc.toy_laser_saber": "Toy Laser Saber",
   "block.uhc.coins": "Coins",
   "item.uhc.dart": "Dart",
   "item.uhc.coin": "Coin",
-  "entity.uhc.toy_car": "Toy Car",
-  "item.uhc.toy_gun_item": "Toy Gun",
-  "item.uhc.toy_car_spawn_egg": "Toy Car Spawn Egg"
+  "item.uhc.toy_gun_item": "Toy Gun"
 }
