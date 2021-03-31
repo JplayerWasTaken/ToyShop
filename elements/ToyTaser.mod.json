@@ -21,13 +21,13 @@
     },
     "hasGlow": false,
     "animation": "bow",
-    "enableMeleeDamage": false,
-    "damageVsEntity": 0.0,
-    "bulletPower": 0.2,
-    "bulletDamage": 5.0,
+    "enableMeleeDamage": true,
+    "damageVsEntity": 5.0,
+    "bulletPower": 10.0,
+    "bulletDamage": 0.25,
     "bulletKnockback": 0,
     "bulletParticles": false,
-    "bulletIgnitesFire": false,
+    "bulletIgnitesFire": true,
     "bulletItemTexture": {
       "value": "CUSTOM:TaserBoltNotAmmo"
     },

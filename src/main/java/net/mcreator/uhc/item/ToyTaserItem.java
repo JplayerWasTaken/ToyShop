@@ -22,9 +22,13 @@ import net.minecraft.item.UseAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.IRendersAsItem;
 import net.minecraft.entity.EntityType;
@@ -36,6 +40,9 @@ import net.minecraft.client.Minecraft;
 import net.mcreator.uhc.UhcModElements;
 
 import java.util.Random;
+
+import com.google.common.collect.Multimap;
+import com.google.common.collect.ImmutableMultimap;
 
 @UhcModElements.ModElement.Tag
 public class ToyTaserItem extends UhcModElements.ModElement {
@@ -84,6 +91,20 @@ public class ToyTaserItem extends UhcModElements.ModElement {
 		}
 
 		@Override
+		public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlotType slot) {
+			if (slot == EquipmentSlotType.MAINHAND) {
+				ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+				builder.putAll(super.getAttributeModifiers(slot));
+				builder.put(Attributes.ATTACK_DAMAGE,
+						new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Ranged item modifier", (double) 3, AttributeModifier.Operation.ADDITION));
+				builder.put(Attributes.ATTACK_SPEED,
+						new AttributeModifier(ATTACK_SPEED_MODIFIER, "Ranged item modifier", -2.4, AttributeModifier.Operation.ADDITION));
+				return builder.build();
+			}
+			return super.getAttributeModifiers(slot);
+		}
+
+		@Override
 		public void onUsingTick(ItemStack itemstack, LivingEntity entityLiving, int count) {
 			World world = entityLiving.world;
 			if (!world.isRemote && entityLiving instanceof ServerPlayerEntity) {
@@ -92,7 +113,7 @@ public class ToyTaserItem extends UhcModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				if (true) {
-					ArrowCustomEntity entityarrow = shoot(world, entity, random, 0.2f, 5, 0);
+					ArrowCustomEntity entityarrow = shoot(world, entity, random, 10f, 0.25, 0);
 					itemstack.damageItem(1, entity, e -> e.sendBreakAnimation(entity.getActiveHand()));
 					entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
 					entity.stopActiveHand();
@@ -161,6 +182,7 @@ public class ToyTaserItem extends UhcModElements.ModElement {
 		entityarrow.setIsCritical(false);
 		entityarrow.setDamage(damage);
 		entityarrow.setKnockbackStrength(knockback);
+		entityarrow.setFire(100);
 		world.addEntity(entityarrow);
 		double x = entity.getPosX();
 		double y = entity.getPosY();
@@ -176,11 +198,12 @@ public class ToyTaserItem extends UhcModElements.ModElement {
 		double d0 = target.getPosY() + (double) target.getEyeHeight() - 1.1;
 		double d1 = target.getPosX() - entity.getPosX();
 		double d3 = target.getPosZ() - entity.getPosZ();
-		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 0.2f * 2, 12.0F);
+		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 10f * 2, 12.0F);
 		entityarrow.setSilent(true);
-		entityarrow.setDamage(5);
+		entityarrow.setDamage(0.25);
 		entityarrow.setKnockbackStrength(0);
 		entityarrow.setIsCritical(false);
+		entityarrow.setFire(100);
 		entity.world.addEntity(entityarrow);
 		double x = entity.getPosX();
 		double y = entity.getPosY();
