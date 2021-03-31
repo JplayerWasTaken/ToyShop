@@ -190,7 +190,7 @@ public class ToyCarEntity extends UhcModElements.ModElement {
 				if (entity instanceof LivingEntity) {
 					this.setAIMoveSpeed((float) this.getAttributeValue(Attributes.MOVEMENT_SPEED));
 					float forward = ((LivingEntity) entity).moveForward;
-					float strafe = 0;
+					float strafe = ((LivingEntity) entity).moveStrafing;
 					super.travel(new Vector3d(strafe, 0, forward));
 				}
 				this.prevLimbSwingAmount = this.limbSwingAmount;
